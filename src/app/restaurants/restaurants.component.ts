@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Restaurant} from './restaurant/restaurant.model'
+import {RestaurantsService} from './restaurants.service'
 
 @Component({
   selector: 'mt-restaurants',
@@ -7,6 +8,8 @@ import {Restaurant} from './restaurant/restaurant.model'
 })
 export class RestaurantsComponent implements OnInit {
 
+  restaurants: Restaurant[]
+/*
   // array ainda utilizado pela falta do backend
   restaurants: Restaurant[] = [
   {
@@ -25,11 +28,12 @@ export class RestaurantsComponent implements OnInit {
     rating: 3.5,
     imagePath: "assets/img/restaurants/burgerhouse.png"
   }
-]
+] */
 
-  constructor() { }
+  constructor(private restaurantsService: RestaurantsService) { }
 
   ngOnInit() {
+    this.restaurants = this.restaurantsService.restaurants()
   }
 
 }

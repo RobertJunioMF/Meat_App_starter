@@ -12,6 +12,8 @@ export class ShoppingCartService {
     } else {
       this.items.push(new CartItem(item));
     }
+
+    console.log(this.items)
   }
 
   removeItem(item: CartItem) {

@@ -1,0 +1,2 @@
+ng serve = starter project
+json-server db.json = starter data base

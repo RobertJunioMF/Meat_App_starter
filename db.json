@@ -370,5 +370,19 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "Avenida",
+      "number": "0",
+      "optionalAddress": "",
+      "paymentOption": "REF",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "sunday"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

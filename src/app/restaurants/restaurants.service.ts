@@ -14,9 +14,11 @@ export class RestaurantsService {
 
   constructor(private http: Http){}
 
-  restaurants(): Observable<Restaurant[]> {
+  restaurants(search?: string): Observable<Restaurant[]> {
     // map necessário para mapear a resposta, obtendo somente o json que vem com a resposta
-    return this.http.get(`${MEAT_API}/restaurants`).map(response => response.json())
+    // q é algo genérico para buscar por qualquer informação do restaurante
+    return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search }})
+    .map(response => response.json())
     .catch(ErrorHandler.handleError);
   }
 

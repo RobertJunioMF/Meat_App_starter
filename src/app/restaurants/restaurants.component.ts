@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import {Restaurant} from './restaurant/restaurant.model'
 import {RestaurantsService} from './restaurants.service'
 import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/distinctUntilChanged'
 
 @Component({
   selector: 'mt-restaurants',
@@ -37,7 +39,8 @@ export class RestaurantsComponent implements OnInit {
       searchControl: this.searchControl
     })
 
-    this.searchControl.valueChanges.switchMap(searchTerm => this.restaurantsService.restaurants(searchTerm))
+    this.searchControl.valueChanges.debounceTime(500).distinctUntilChanged()
+    .switchMap(searchTerm => this.restaurantsService.restaurants(searchTerm))
     .subscribe(restaurants => this.restaurants = restaurants)
 
     // metodo subscribe para receber o map enviado pelo serviço

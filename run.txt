@@ -1,2 +1,3 @@
 ng serve = starter project
 json-server db.json = starter data base
+nodemon --watch backend backend/dist/server.js = starter com nodemon backend

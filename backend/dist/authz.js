@@ -22,7 +22,7 @@ exports.handleAuthorization = function (req, resp, next) {
 function extractToken(req) {
     var token = undefined;
     if (req.headers && req.headers.authorization) {
-        var parts = req.headers.authorization.splitt(' ');
+        var parts = req.headers.authorization.split(' ');
         if (parts.length === 2 && parts[0] === 'Bearer') {
             token = parts[1];
         }

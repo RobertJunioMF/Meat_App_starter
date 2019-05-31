@@ -14,7 +14,8 @@ export const ROUTES: Routes = [
   {path: 'login/:to', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'about', loadChildren: './about/about.module#AboutModule'},
-  {path: 'order', loadChildren: './order/order.module#OrderModule', canLoad: [LoggedInGuard]},
+  {path: 'order', loadChildren: './order/order.module#OrderModule',
+        canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
   {path: 'order-summary', component: OrderSummaryComponent},
   {path: 'restaurants/:id', component: RestaurantDetailComponent,
     children: [
